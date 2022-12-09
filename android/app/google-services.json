@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "303319578803",
+    "project_id": "wood-idetification-idesam",
+    "storage_bucket": "wood-idetification-idesam.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:303319578803:android:696db46951113f8b9bd8c6",
+        "android_client_info": {
+          "package_name": "com.rondasegura"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "303319578803-cc9f2bmmn048q0sl7t2jenkn4p3bun0h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaGNqLhPKyi1sl3qSe3tlfnJ7EPnLBnto"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "303319578803-cc9f2bmmn048q0sl7t2jenkn4p3bun0h.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "303319578803-hol2f03hdpiekij67104aiqv4t6bvqbq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sidia.woodid"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:303319578803:android:6d2ffd27e47f70309bd8c6",
+        "android_client_info": {
+          "package_name": "com.sidia.woodid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "303319578803-cc9f2bmmn048q0sl7t2jenkn4p3bun0h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDaGNqLhPKyi1sl3qSe3tlfnJ7EPnLBnto"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "303319578803-cc9f2bmmn048q0sl7t2jenkn4p3bun0h.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "303319578803-hol2f03hdpiekij67104aiqv4t6bvqbq.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sidia.woodid"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
