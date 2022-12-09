@@ -23,7 +23,7 @@ export default function LoginScreen({ navigation }) {
 
     function CheckUser() {
 
-        setMsg('');
+        //setMsg('');
 
         (!email && password) && setMsg("Usuário em Branco");
         (email && !password) && setMsg("Senha em Branco");
