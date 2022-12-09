@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import auth from '@react-native-firebase/auth';
+
 import Button from '../components/Button';
 
 import {
-    ScrollView,
     Text,
     StyleSheet,
     TextInput,
-    TouchableOpacity,
+    Alert,
     View,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
@@ -42,6 +42,7 @@ export default function LoginScreen({ navigation }) {
                     onChangeEmail('');
                     onChangePassword('');
                     console.log(error.Error);
+                    alerta("Falha no login", "Verifique o usuário e senha");
 
                 });
 
@@ -53,6 +54,16 @@ export default function LoginScreen({ navigation }) {
     }
 
 
+    function alerta(titulo, mensagen) {
+        Alert.alert(
+          titulo,
+          mensagen,
+          [
+            { text: "OK", onPress: () => console.log("OK Pressed") }
+          ]
+        );
+      }
+    
     return (
     
         <View style={styles.view}>
