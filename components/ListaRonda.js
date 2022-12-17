@@ -5,8 +5,9 @@ import firestore from '@react-native-firebase/firestore';
 
 
 
-const Item = ({ id, local, data, hora, usuario, idRonda, site }) => (
+const Item = ({ id, local, data, hora, usuario, idRonda }) => (
     <View style={menuStyles.innerContainer}>
+
         <Text style={menuStyles.itemText} onPress={() => getItem(id, local, data,hora)}>Hora da ronda: {idRonda}</Text>
         <Text style={menuStyles.itemText} onPress={() => getItem(id, local, data,hora)}>Local: {local}</Text>
         {/* <Text style={menuStyles.itemText} onPress={() => getItem(id, local, data,hora)}>Local: {local}</Text> */}

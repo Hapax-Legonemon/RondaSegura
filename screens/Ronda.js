@@ -177,6 +177,7 @@ const RondaScreen = ({ navigation }) => {
 
 
         <Button onPress={Salvar} children="Registrar local "></Button>
+        {/* <Button onPress={ ()=>{navigation.navigate('Consulta')}} children = "Consultar"></Button> */}
 
       </View>
     </SafeAreaView>

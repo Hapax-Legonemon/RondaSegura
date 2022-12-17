@@ -66,18 +66,34 @@ export default function ConsultaScreen({ navigation }) {
 
     function update(id_site, data, hora) {
         if (id_site) {
-            firestore()
-                .collection('ronda')
-                .where("data", "==", data)
-                .where("site", "==", id_site)
-                .where("idRonda", "==", hora)
-                // .orderBy('idRonda')
-                .get()
-                .then(collectionSnapshot => {
-                    setDataRonda(collectionSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
-                    data = '';
-                })
+            if (hora) {
+                firestore()
+                    .collection('ronda')
+                    .where("data", "==", data)
+                    .where("site", "==", id_site)
+                    .where("idRonda", "==", hora)
+                    .orderBy('hora')
+                    .get()
+                    .then(collectionSnapshot => {
+                        setDataRonda(collectionSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+                        data = '';
+                    })
+            }
+            else {
+                firestore()
+                    .collection('ronda')
+                    .where("data", "==", data)
+                    .where("site", "==", id_site)
+                    // .orderBy('idRonda')
+                    .orderBy('hora')
+                    .get()
+                    .then(collectionSnapshot => {
+                        setDataRonda(collectionSnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() })));
+                        data = '';
+                    })
+            }
         }
+
         else {
             alerta("Atenção", "Verifique o site escolhido.");
         }
@@ -87,10 +103,11 @@ export default function ConsultaScreen({ navigation }) {
     function checaHora() {
         if (horario) {
             update(site, makeTwoDigits(data.getDate()) + "/" + makeTwoDigits(data.getMonth() + 1) + "/" + data.getFullYear(), horario + ' h')
-            setHorario('');
+            // setHorario('');
         }
         else {
-            alerta("Atenção", "Verifique o horário escolhido.");
+            update(site, makeTwoDigits(data.getDate()) + "/" + makeTwoDigits(data.getMonth() + 1) + "/" + data.getFullYear(), "")
+            //alerta("Atenção", "Verifique o horário escolhido.");
         }
 
     }
@@ -99,7 +116,7 @@ export default function ConsultaScreen({ navigation }) {
 
 
         <SafeAreaView style={styles.container}>
-            <Text style={styles.regularText} > Escolha o site: </Text>
+            <Text style={styles.regularText} > Click na imagem para escolher o site: </Text>
             <View style={styles.view} >
 
                 <TouchableOpacity onPress={() => { setSite(values[1]) }} >
@@ -140,7 +157,7 @@ export default function ConsultaScreen({ navigation }) {
                 style={styles.inputBox}
                 value={horario}
                 onChangeText={setHorario}
-                placeholder={'horário ex: 01'}
+                placeholder={'ex: 01 ou em branco lista todos'}
                 keyboardType={'numeric'}
             />
             <Button onPress={() => checaHora()} children="Consultar "></Button>
@@ -167,7 +184,7 @@ const styles = StyleSheet.create({
     },
 
     regularText: {
-        fontSize: 20,
+        fontSize: 12,
         padding: 5,
         // marginVertical: 4,
         color: '#EDEFEE',
@@ -200,9 +217,9 @@ const styles = StyleSheet.create({
         marginTop: 10,
         color: '#00ff00',
         textAlign: "center",
-        fontSize: 25,
+        fontSize: 15,
         fontWeight: "bold",
-        marginBottom: 20
+        marginBottom: 10
     },
     inputBox: {
         height: 40,

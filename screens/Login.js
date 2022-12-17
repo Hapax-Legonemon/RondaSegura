@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import auth from '@react-native-firebase/auth';
-
 import Button from '../components/Button';
 
 import {
@@ -21,9 +20,9 @@ export default function LoginScreen({ navigation }) {
     const [msg, setMsg] = useState('');
     const myIcon = <Icon name="user" size={70} color="#0f0" />;
 
+   
     function CheckUser() {
-
-        //setMsg('...');
+        setMsg('');
 
         (!email && password) && setMsg("Usuário em Branco");
         (email && !password) && setMsg("Senha em Branco");
@@ -48,11 +47,8 @@ export default function LoginScreen({ navigation }) {
 
     }
 
-    function init() {
-        if (auth().currentUser)
-            navigation.navigate('Wellcome')
-    }
-
+  
+    
 
     function alerta(titulo, mensagen) {
         Alert.alert(
@@ -64,12 +60,11 @@ export default function LoginScreen({ navigation }) {
         );
       }
     
-    return (
+ 
     
+    return (
         <View style={styles.view}>
-            
-            
-            {init()}
+     
             
             <Text style={styles.headerText}>Bem vindo ao SmartRonda </Text>
             {myIcon}
@@ -92,16 +87,12 @@ export default function LoginScreen({ navigation }) {
                 keyboardType={'numeric'}
                 secureTextEntry={true}
             />
-          
-
-            
             <Button onPress={ CheckUser} children = "Login "></Button>
-
-
-            <Text style={styles.message}> {msg} </Text>
+            {/* <Text style={styles.message}> {msg} </Text> */}
 
             </View>
-    
+            
+        
     );
 }
 
@@ -140,7 +131,7 @@ const styles = StyleSheet.create({
  
    
     message: {
-        color: 'red',
+        color: 'yellow',
         textAlign: 'center',
         fontSize: 25,
         // backgroundColor:'#555555',

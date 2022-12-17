@@ -5,20 +5,18 @@ import ListaScreen from "../screens/Lista";
 import RondaScreen from "../screens/Ronda";
 import WellcomeScreen from "../screens/Wellcome";
 import ConsultaScreen from "../screens/Consulta";
-
+import auth from '@react-native-firebase/auth';
 import BarcodeScannerScreen from "../components/BarcodeScanner";
 
 const Stack = createNativeStackNavigator();
-
 const RootNavigator = () => {
   return (
     <Stack.Navigator>
-      <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Wellcome" component={WellcomeScreen} />
+      <Stack.Screen name="Login" component={LoginScreen} />
       <Stack.Screen name="Lista" component={ListaScreen} />
       <Stack.Screen name="Ronda" component={RondaScreen} />
       <Stack.Screen name="Consulta" component={ConsultaScreen} />
-
       <Stack.Screen name="Barcodescanner" component={BarcodeScannerScreen} />
 
     </Stack.Navigator>

@@ -49,9 +49,10 @@ export default function WellcomeScreen({ navigation }) {
         auth().signOut().then(navigation.navigate('Login')) 
     }
 
-
+  
     return (
         <SafeAreaView style={styles.container}>
+        {(!user?navigation.navigate('Login'):null)}
         <Text style={styles.text}> Usuário: {user?.email}</Text>
         <View style={styles.view}>
            
@@ -60,8 +61,11 @@ export default function WellcomeScreen({ navigation }) {
            <Button onPress={ ()=>{navigation.navigate('Consulta')}} children = "Consultar Ronda "></Button>
                       
            <Button onPress={out} children = "Logout "></Button>
-  
         </View>
+        
+           
+             
+        
         </SafeAreaView>
     );
 
